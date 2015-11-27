@@ -42,6 +42,15 @@ gem "figaro"
 gem 'mini_magick', '~> 4.3.1'
 gem 'carrierwave-aws'
 
+group :development, :test do 
+	gem 'rspec-rails', '~> 3.0'
+	gem "factory_girl_rails", "~> 4.0"
+end
+
+group :test do 
+	gem 'capybara'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
