@@ -1,4 +1,3 @@
-
 FactoryGirl.define do
 	factory :course do
 		title 		"Ruby Fundamentals"
