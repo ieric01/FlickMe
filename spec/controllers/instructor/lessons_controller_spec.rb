@@ -26,13 +26,14 @@ RSpec.describe Instructor::LessonsController, :type => :controller do
 		end
 	end
 	describe "GET#new" do
-		context "user who created course can create lesson" do
+		context "user who created course can make new lesson" do
 			it "gets lesson form" do
 				get :new, :section_id => lesson.section
 				expect(response).to have_http_status(:success)
+				expect(response).to render_template("new")
 			end
 		end
-		context "user did not create course can not create lesson" do
+		context "user did not create course can not make a new lesson" do
 			it "gets lesson form" do
 				user = create(:user)
 				sign_in user
