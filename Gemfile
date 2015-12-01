@@ -41,6 +41,7 @@ gem 'carrierwave'
 gem "figaro"
 gem 'mini_magick', '~> 4.3.1'
 gem 'carrierwave-aws'
+gem 'stripe'
 
 group :development, :test do 
 	gem 'rspec-rails', '~> 3.0'
