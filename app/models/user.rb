@@ -6,8 +6,10 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
   def enrolled_in?(course)
-  	return false if course.enrollments.where(:user_id => self.id).empty?
-  	return true
+  	# return false if course.enrollments.where(:user_id => self.id).empty?
+  	# return true
+    return enrolled_courses.include?(course)
   end
 end

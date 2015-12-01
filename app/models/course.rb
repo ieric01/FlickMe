@@ -3,6 +3,8 @@ class Course < ActiveRecord::Base
 	belongs_to :user
 	has_many :sections
 	has_many :enrollments
+	has_many :enrolled_users, :through => :enrollments, 
+			 :source => :user
 	
 	validates :title, :presence => true
 	validates :description, :presence => true
