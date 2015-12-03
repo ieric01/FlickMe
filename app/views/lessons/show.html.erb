@@ -3,7 +3,17 @@
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <h1><%= current_lesson.title %></h1>
   <div class="col-xs-12 col-sm-8">
-  	 <p><%= current_lesson.subtitle %></p>
+  	 <p class="pull-left">
+  	 	<%= current_lesson.subtitle %>
+  	 </p>
+  	 <% if current_lesson.next_lesson.present? %>
+  	 	<%= link_to lesson_path(current_lesson.next_lesson), :class => "btn btn-default pull-right" do %>
+  	 	Next Lesson
+  	 		<span class="glyphicon glyphicon-forward"></span>
+  	 	<% end %>
+  	 <% end %>
+  	 <br class ="clr" />
+  	 <br />
 	  <video id="MY_VIDEO_1" class="video-js" controls
 	   preload="auto" width="75%" height="100%" poster="/assets/black.jpg"
 	   data-setup="{}">
