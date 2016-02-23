@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe Instructor::CoursesController, :type => :controller do
+RSpec.describe Instructor::CoursesController, type: :controller do
 	let(:course) { create(:course) }
 	before { sign_in course.user }
 
@@ -18,6 +18,7 @@ RSpec.describe Instructor::CoursesController, :type => :controller do
 					post :create, :course => course.attributes
 				}. to change(Course, :count).by(0)
 				expect(assigns[:course].errors).not_to be_empty 
+        expect(response).to redirect_to(path)
 			end
 		end
 	end
@@ -25,6 +26,7 @@ RSpec.describe Instructor::CoursesController, :type => :controller do
 	describe "User Permissions" do
 		context "user did not create course" do
 			it "user cannot access show page" do
+        #set up variables in let block
 				unauthorized_user = create(:user, email: "test2@gmail.com")
 				sign_in unauthorized_user
 				get :show, :id => course

@@ -27,7 +27,8 @@ describe 'user signup' do
 end
 
 describe "user login" do
-	user = User.create(:email => "mrRight@gmail.com", :password => "imalwaysright")
+	user = create(:user, :email => "mrRight@gmail.com", :password => "imalwaysright")
+	#let block
 	it "allows user to login successfully" do
 		visit "/users/sign_in"
 
